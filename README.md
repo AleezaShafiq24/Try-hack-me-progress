@@ -1,2 +1,2 @@
-# My-Learning-Portfolio
-My cybersecurity learning journey with TryHackMe
+# Try-Hack-Me-Learning 
+
