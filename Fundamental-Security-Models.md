@@ -1,33 +1,68 @@
 # CORE SECURITY MODELS
 
-# 1. CIA Triad
+### ✅ CIA Triad
 
-The CIA Triad is a foundational model in cybersecurity that defines three key objectives: Confidentiality, Integrity, and Availability. These principles guide how information and systems should be protected, and nearly every security decision or threat can be mapped to one or more of them.
+**Confidentiality** – Prevent unauthorized access to data  
+**Integrity** – Ensure data is accurate and unaltered  
+**Availability** – Keep systems and data accessible when needed
 
-# Confidentiality - means keeping data private and only accessible to authorized users.
-- Ways it's enforced include encryption, authentication, access control, and user permissions.  
-Examples of breaches: hacked databases, exposed credentials, or insider leaks.
+> 🧠 I understand CIA as the base checkpoint when looking at any security measure. If something breaks one of these three, it’s a security risk.
 
-# Integrity -  ensures data remains accurate, consistent, and unaltered. 
-- Integrity is protected through hashing, digital signatures, checksums, and audit trails.  
-Examples: altered transactions, fake logs, or injected code in trusted files.
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Availability -  means systems and information are accessible when needed.
-- To maintain availability, systems use backups, failover setups, redundancy, DDoS protection, and resource monitoring.  
-Examples of availability threats: server outages, DDoS attacks, hardware failure, or poor system design.
+### ❌ DAD Triad
 
+**Disclosure** – Exposure of data to unauthorized users  
+**Alteration** – Unauthorized changes made to data  
+**Denial** – Blocking users from accessing systems or info
 
-Together, they help evaluate risks, design secure systems, and respond to incidents. For example, a data breach compromises confidentiality, corrupted files affect integrity, and a denial-of-service attack targets availability. Security tools, policies, and architectures are often built around maintaining a balance between all three areas, depending on what the system handles and what’s most at risk.
----
+> 🧠 DAD is basically the attacker's perspective on breaking CIA. I use it to map threat examples to specific CIA failures.
 
-## Why It Matters
+--------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The CIA Triad is used as a framework across all areas of security — from penetration testing and incident response to system architecture and compliance. Most attacks hit at least one part of the triad:
+### 🔷 Parkerian Hexad
 
-- A leak hits "confidentiality"
-- A data tamper hits "integrity"
-- A DDoS hits "availability"
+Extends the CIA model with three more elements:
 
-It’s also used to guide what protections are most important in a given context. For example, in healthcare systems, confidentiality is a major priority. In financial services, integrity might take the lead. For emergency response systems, availability is often most critical.
+- **Possession/Control** – Who physically or digitally holds the asset  
+- **Authenticity** – Verifies that the data or source is genuine  
+- **Utility** – Whether the data is actually usable in its current form
 
-Understanding the CIA Triad helps you think like both an attacker (what to break) and a defender (what to protect).
+> 🧠 This helped me think beyond the basic three — for example, encrypted data might be confidential but useless without the decryption key (breaks Utility).
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### 🔒 Bell-LaPadula Model (focus: confidentiality)
+
+- Used in systems that handle classified data  
+- **"No read up, no write down"** — users can't read higher-level info or leak info to lower levels
+
+> 🧠 Makes sense in environments like defense or military, where secrecy matters more than anything else.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### 🛡️ Biba Model (focus: integrity)
+
+- Opposite of Bell-LaPadula  
+- **"No write up, no read down"** — low-trust users can't modify high-trust data
+
+> 🧠 I think of this in contexts like medical records or finance, where tampering is a bigger risk than secrecy.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### 📚 Clark-Wilson Model (focus: process integrity)
+
+- Based on **well-formed transactions** and **separation of duties**  
+- Data can only be modified through approved programs
+
+> 🧠 This reminds me of systems like banking apps where only specific workflows can trigger changes — not just direct DB edits.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### 🧱 Brewer-Nash Model (Coca-Cola Model)
+
+- Dynamic access control based on user’s history  
+- Prevents conflict of interest (e.g. can’t access competing clients’ data)
+
+> 🧠 Useful where consultants or law firms serve competing parties — it adjusts access based on real-time usage patterns.
+
